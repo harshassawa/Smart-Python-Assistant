@@ -1,4 +1,4 @@
-#SDP Harsh Assawa Roll No. 12
+#SDP Harsh Assawa Roll No. 13
 
 import pyttsx3
 import speech_recognition as sr
@@ -214,13 +214,6 @@ if __name__ == '__main__':
             exit()
 
 
-        elif 'open matlab' in query:
-            print("Opening Matlab")
-            speak("Opening Matlab")
-            appli = r"C:\Program Files\MATLAB\R2018a\bin\matlab.exe"
-            os.startfile(appli)
-            exit()
-
         elif 'open visual studio' in query:
             print("Opening Visual Studio")
             speak("Opening Visual Studio") 
@@ -228,13 +221,7 @@ if __name__ == '__main__':
             os.startfile(appli)
             exit()
 
-        elif 'open r studio' in query: 
-            print("Opening R Studio")
-            speak("Opening R Studio")
-            appli = r"C:\Program Files\RStudio\bin\rstudio.exe"
-            os.startfile(appli)
-            exit()
-
+        
         elif 'open microsoft word' in query:
             print("Opening Word")
             speak("Opening Word") 
@@ -259,7 +246,7 @@ if __name__ == '__main__':
         elif 'open discord' in query:
             print("Opening Discord")
             speak("Opening Discord")
-            appli = r"C:\Users\Harsh\AppData\Local\Discord\app-0.0.309/Discordh"
+            appli = r"C:\Users\Harsh\AppData\Local\Discord\app-0.0.309/Discord"
             os.startfile(appli)
             exit()
 
@@ -396,12 +383,12 @@ if __name__ == '__main__':
         elif 'news' in query:
              
             try: 
-                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=top&apiKey=9f680acd962c4a128ad8a5b1afaa7cd5''')
+                jsonObj = urlopen('''https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=0bfc41e474034a3eb10cb5b644d7b911''')
                 data = json.load(jsonObj)
                 i = 1
-                print('Here are some top news from the Times of India') 
-                speak('here are some top news from the Times of India')
-                print('''=============== TIMES OF INDIA ============'''+ '\n')
+                print('Here are some top news from the BBC News') 
+                speak('here are some top news from the BBC News')
+                print('''=============== BBC News ============'''+ '\n')
                  
                 for item in data['articles']:
                      
@@ -418,10 +405,10 @@ if __name__ == '__main__':
             speak("Whom do you want to send the message")
             
             options = Options()
-            options.add_experimental_option("excludeSwitches", ["enable-automation"])
+            options.add_experimental_option("excludeSwitches", ["enable-logging"])
             options.add_experimental_option('useAutomationExtension', False)
 
-            driver = webdriver.Chrome('D:\Subjects 4th sem\SDP\chromedriver', options=options)
+            driver = webdriver.Chrome('D:\College Files\TY- 1st Sem\SDP\chromedriver', options=options)
             driver.maximize_window()
             driver.get('https://web.whatsapp.com')
 
@@ -446,8 +433,8 @@ if __name__ == '__main__':
             query = query.replace("ZZz",final_message)
 
             for i in range(count):
-                driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]').send_keys(query)
-                send= driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button/span')
+                driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[2]').send_keys(query)
+                send= driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]')
                 send.click()
             
             print("Message sent successfully!")
@@ -793,7 +780,7 @@ if __name__ == '__main__':
 
                         win_check()
                         if win or tie:
-                            write_log()
+                            write_log() 
                             break
                         print("It's my turn now")
                         speak("It's my turn now")
@@ -861,3 +848,5 @@ if __name__ == '__main__':
             board.digital[7].write(1)
             print("Turned off lights")
             speak("Turned off lights")
+
+        
